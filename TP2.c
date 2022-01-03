@@ -50,7 +50,7 @@ void main()
     char continuar;
     
     presentacion();
-    do
+    for(;opcion!=5;)
     {
         menu();
         scanf("%d", &opcion);
@@ -94,11 +94,22 @@ void main()
             getch();
             system("cls");
             break;
+        
+        case 5:
+            system("cls");
+            cierre();
+            break;
+        
+        default:
+            printf("La opcion ingresada no es correcta");
+            Sleep(1000);
+            system("cls");
+            break;
+
         }
 
-        puts("---------------------------------------------------------------------------");
         fflush(stdin);
-    } while (opcion!=5);
+    } 
 }
 
 struct persona cargarPersona()

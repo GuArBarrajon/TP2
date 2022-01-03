@@ -104,6 +104,38 @@ void menu()
     printf("* * * * * * * * * * * * * * * * * * * * * * * * *\n");
 }
 
+void cierre()
+{
+    printf("Cerrando el programa\n");
+    printf("***                 \n");
+    Sleep(100);
+    system("cls");
+    printf("Cerrando el programa\n");
+    printf("   ***              \n");
+    Sleep(100);
+    system("cls");
+    printf("Cerrando el programa\n");
+    printf("      ***           \n");
+    Sleep(100);
+    system("cls");
+    printf("Cerrando el programa\n");
+    printf("         ***        \n");
+    Sleep(100);
+    system("cls");
+    printf("Cerrando el programa\n");
+    printf("            ***     \n");
+    Sleep(100);
+    system("cls");
+    printf("Cerrando el programa\n");
+    printf("               ***  \n");
+    Sleep(100);
+    system("cls");
+    printf("Cerrando el programa\n");
+    printf("                  ***\n");
+    Sleep(700);
+    system("cls");
+}
+
 int ingresarEntero(char* mensaje)
 {
     int aux;
