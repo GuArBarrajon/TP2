@@ -13,7 +13,7 @@ void presentacion()
         printf("*         Estructuras         *\n");
         printf("*                             *\n");
         printf("* * * * * * * * * * * * * * * *\n");
-        Sleep(1000);
+        Sleep(500);
         system("cls");
         printf("                               \n");
         printf("                               \n");
@@ -21,7 +21,7 @@ void presentacion()
         printf("          Estructuras          \n");
         printf("                               \n");
         printf("                               \n");
-        Sleep(1000);
+        Sleep(500);
         system("cls");
     }
     printf("* * * * * * * * * * * * * * * *\n");
