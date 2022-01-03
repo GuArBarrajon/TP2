@@ -21,7 +21,10 @@ Modificó:
 */
 
 #include<stdio.h>
+#include<conio.h>
 #include<string.h>
+#include<windows.h>
+#include "libreriaTP2.h"
 #define MAX 20            // Hacer un programa que defina un array de 20 ítems de esta estructura
 
 struct persona
@@ -31,11 +34,10 @@ struct persona
     int edad, flag;
 }listaPersonas[MAX];
 
-
 struct persona cargarPersona();
 void imprimirPersona(struct persona pp);
 struct persona eliminarPersona();
-struct persona ordenarLista();            
+struct persona ordenarLista();
 void imprimirGrafico(struct persona pp[]);
 
 void main()
@@ -43,16 +45,10 @@ void main()
     int opcion, i=0;
     char continuar;
     
-    /*for(int i=0;i<MAX; i++)
-    {
-        strcpy(listaPersonas[i].nombre, " ");
-        listaPersonas[i].dni=0;
-        listaPersonas[i].edad=0;
-        listaPersonas[i].flag=0;
-    }*/
+    presentacion();
     do
     {
-        printf("Ingrese:\n1. Agregar persona\n2. Eliminar persona\n3. Ordenar lista de personas alfabeticamente\n4. Imprimir Grafico de Edades \n5. Salir de la agenda\n");
+        menu();
         scanf("%d", &opcion);
         fflush(stdin);
         
@@ -67,23 +63,32 @@ void main()
                     listaPersonas[i]=cargarPersona();
                     i++;
 
-                    printf("Desea continuar? (s/n) ");
-                    scanf(" %c", &continuar);
+                    continuar=ingresarChar("Desea continuar? (s/n) ");
                 }
                 
             } while ((continuar=='s' || continuar=='S') && i<MAX);
+            Sleep(1000);
+            system("cls");
             break;
     
         case 2:
             eliminarPersona();
+            Sleep(2000);
+            system("cls");
             break;
 
         case 3:
             ordenarLista();
+            printf("Presione una tecla para continuar...");
+            getch();
+            system("cls");
             break;
 
         case 4:
             imprimirGrafico(listaPersonas);
+            printf("Presione una tecla para continuar...");
+            getch();
+            system("cls");
             break;
         }
 
@@ -98,12 +103,10 @@ struct persona cargarPersona()
     fflush(stdin);
 
     printf("Datos de la persona:\n");
-    printf("Nombre: ");
-    gets(pers.nombre);
-    printf("DNI: ");
-    scanf("%ld", &pers.dni);
-    printf("edad: ");
-    scanf("%d", &pers.edad);
+    ingresarString ("Nombre: ", pers.nombre);
+    fflush(stdin);
+    pers.dni=ingresarDocumento("DNI: ");
+    pers.edad=ingresarEntero("Edad: ");
     pers.flag=0;
     fflush(stdin);
     
@@ -143,8 +146,8 @@ struct persona eliminarPersona()
         if(strcmp(listaPersonas[i].nombre, name)==0)
         {
             imprimirPersona(listaPersonas[i]);
-            printf("Esta seguro de eliminarlo? (s/n) ");
-            scanf(" %c", &option);
+            option=ingresarChar("Esta seguro de eliminarlo? (s/n) ");
+            
             if(option=='s'|| option=='S')
             {
                 listaPersonas[i].flag=1;
@@ -243,7 +246,7 @@ void imprimirGrafico(struct persona pp[])
             mayor = contadores[2];
         }
     }
-    filas = mayor; // Declaro la cantidad de filas en base al grupo mayor
+    filas = mayor; // Declaro la cantidad de filas en base al contador mayor
     //Imprimo el grafico
     for (i = 0; i < mayor; i++) 
     {
@@ -261,6 +264,6 @@ void imprimirGrafico(struct persona pp[])
         } 
         filas--;
         printf("\n");
-    } // for (i = 0; i < mayor; i++)
+    } 
     printf("<18   19-35    >35\n\n");
 }

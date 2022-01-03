@@ -1,0 +1,17 @@
+Nombre       DNI     Edad
+Ana            1       12
+Oscar          1       65
+Maria          1       17
+Marcos         1       15
+Omar           1       57
+Martha         1       77
+Marcelo        1       33
+Luis           1       27
+Gabriel        1       29  
+Mirtha         1       81
+Brian          1       16
+Sofia          1       17
+Luz            1       12
+Pablo          1       25
+Mario          1       63 
+ 
