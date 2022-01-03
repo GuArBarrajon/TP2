@@ -25,6 +25,10 @@ Modificó:
 #include<string.h>
 #include<windows.h>
 #include "libreriaTP2.h"
+#define ANSI_COLOR_RED   "\x1b[31m"
+#define ANSI_COLOR_GREEN "\x1b[32m"
+#define ANSI_COLOR_BLUE  "\x1b[34m"
+#define ANSI_COLOR_RESET "\x1b[0m"
 #define MAX 20            // Hacer un programa que defina un array de 20 ítems de esta estructura
 
 struct persona
@@ -125,11 +129,6 @@ void imprimirPersona(struct persona pp)
         printf("DNI: %ld\n", pp.dni);
         printf("Edad: %d\n", pp.edad);
     }
-    else
-    {
-        printf("No se encontro esa persona en la lista\n");
-    }
-    
 }
 
 
@@ -151,7 +150,7 @@ struct persona eliminarPersona()
             if(option=='s'|| option=='S')
             {
                 listaPersonas[i].flag=1;
-                printf("La persona fue eliminada\n");
+                printf(ANSI_COLOR_RED "La persona fue eliminada" ANSI_COLOR_RESET "\n");
             }
             bandera=1;
         }
@@ -159,7 +158,7 @@ struct persona eliminarPersona()
 
     if(bandera==0)
     {
-        printf("No se encontro esa persona en la lista\n");
+        printf(ANSI_COLOR_RED "No se encontro esa persona en la lista" ANSI_COLOR_RESET "\n");
     }
     
     return listaPersonas[MAX];
@@ -191,7 +190,7 @@ struct persona ordenarLista()
         }
     }
 
-    printf("Lista ordenada alfabeticamente\n");
+    printf(ANSI_COLOR_BLUE "Lista ordenada alfabeticamente" ANSI_COLOR_RESET "\n");
     for(int i=0; i<MAX; i++)
     {
         if(strcmp(listaPersonas[i].nombre, "") !=0)
@@ -208,7 +207,7 @@ void imprimirGrafico(struct persona pp[])
     int i, j, mayor = 0, filas;
     int contadores[3];
     
-    printf("\n----------------------\n  GRAFICO DE EDADES  \n----------------------\n");
+    printf("\n----------------------\n" ANSI_COLOR_GREEN  "  GRAFICO DE EDADES" ANSI_COLOR_RESET "\n----------------------\n");
     // Inicializo contadores en 0
     for (i = 0; i < 3; i++) {
         contadores[i] = 0;
@@ -265,5 +264,5 @@ void imprimirGrafico(struct persona pp[])
         filas--;
         printf("\n");
     } 
-    printf("<18   19-35    >35\n\n");
+    printf(ANSI_COLOR_GREEN "<18   19-35    >35" ANSI_COLOR_RESET "\n\n");
 }
