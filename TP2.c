@@ -76,13 +76,13 @@ void main()
             break;
     
         case 2:
-            eliminarPersona();
+            listaPersonas[MAX]=eliminarPersona();
             Sleep(2000);
             system("cls");
             break;
 
         case 3:
-            ordenarLista();
+            listaPersonas[MAX]=ordenarLista();
             printf("Presione una tecla para continuar...");
             getch();
             system("cls");
@@ -148,12 +148,12 @@ struct persona eliminarPersona()
     int i, bandera=0;
     char option;
     char name[25];
-    printf("Ingrese el nombre de la a eliminar de la lista: ");
+    printf("Ingrese el nombre de la persona a eliminar de la lista: ");
     gets(name);
 
     for(i=0; i<MAX; i++)
     {
-        if(strcmp(listaPersonas[i].nombre, name)==0)
+        if(strcmp(listaPersonas[i].nombre, name)==0 && listaPersonas[i].flag!=1)
         {
             imprimirPersona(listaPersonas[i]);
             option=ingresarChar("Esta seguro de eliminarlo? (s/n) ");
@@ -204,7 +204,7 @@ struct persona ordenarLista()
     printf(ANSI_COLOR_BLUE "Lista ordenada alfabeticamente" ANSI_COLOR_RESET "\n");
     for(int i=0; i<MAX; i++)
     {
-        if(strcmp(listaPersonas[i].nombre, "") !=0)
+        if(strcmp(listaPersonas[i].nombre, "") !=0 && listaPersonas[i].flag==0)
         {
             imprimirPersona(listaPersonas[i]);
         }
